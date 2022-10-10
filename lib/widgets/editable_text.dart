@@ -1,28 +1,38 @@
-import 'package:flutter/material.dart';
+/* 
 
-// ignore: must_be_immutable
-class EditableText1 extends StatefulWidget {
-  bool? edited = false;
-  EditableText1({super.key, this.edited});
+MySwapWidget(
+  selected: (default value, could be useful, false by default) true / false,
+  childIfSelected: TextField(),
+  childIfNotSelected: Text(),
+)
+
+*/
+
+import 'package:flutter/src/widgets/framework.dart';
+
+class MySwapWidget extends StatefulWidget {
+  final bool selected;
+  final Widget childIfSelected;
+  final Widget childIfnotSelected;
+
+  const MySwapWidget(
+      {super.key,
+      required this.childIfSelected,
+      required this.childIfnotSelected,
+      this.selected = false});
 
   @override
-  State<EditableText1> createState() => _EditableText1State();
+  State<MySwapWidget> createState() => _MySwapWidgetState();
 }
 
-class _EditableText1State extends State<EditableText1> {
+class _MySwapWidgetState extends State<MySwapWidget> {
   @override
   Widget build(BuildContext context) {
-    final isEdited = widget.edited;
-    switch (isEdited) {
+    switch (widget.selected) {
       case true:
-        return const TextField(
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              labelText: "Item name",
-              hintText: "Lamp"),
-        );
+        return widget.childIfSelected;
       default:
-        return const Text("data");
+        return widget.childIfnotSelected;
     }
   }
 }

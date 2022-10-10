@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inventory/models/items.dart';
+import 'package:inventory/widgets/editable_text.dart';
 import '../utils/item_list.dart';
 
 // ignore: must_be_immutable
@@ -17,6 +18,7 @@ class ItemWidget extends StatefulWidget {
 }
 
 class _ItemWidgetState extends State<ItemWidget> {
+  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     final index = widget.itemInstance;
@@ -100,7 +102,18 @@ class _ItemWidgetState extends State<ItemWidget> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(index!.name),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          isSelected = true;
+                        });
+                      },
+                      child: MySwapWidget(
+                        childIfSelected: const TextField(),
+                        childIfnotSelected: Text(index!.name),
+                        selected: isSelected,
+                      ),
+                    ),
                   ],
                 ),
                 Column(
