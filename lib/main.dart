@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:inventory/models/items.dart';
+import 'package:inventory/utils/item_list.dart';
 
 import 'homepage.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(ItemAdapter());
+  await Hive.openBox('itemBox');
+
   runApp(const MyApp());
 }
 

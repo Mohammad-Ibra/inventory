@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:hive/hive.dart';
 import 'package:inventory/models/items.dart';
 import 'package:inventory/utils/item_list.dart';
 import 'package:inventory/widgets/item_widget.dart';
@@ -36,6 +37,26 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
           const Gap(20),
+          Container(
+            width: 200,
+            margin: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: Colors.grey,
+            ),
+            child: TextButton(
+              onPressed: () {
+                setState(() {
+                  Hive.box("itemBox").putAll({'items': items});
+                });
+              },
+              child: const Icon(
+                Icons.save,
+                color: Colors.white,
+              ),
+            ),
+          ),
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(

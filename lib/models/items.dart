@@ -1,3 +1,7 @@
+import 'package:hive/hive.dart';
+
+part 'items.g.dart';
+
 class Store {
   final String? id;
   final String? name;
@@ -14,12 +18,19 @@ class Store {
   }
 }
 
+@HiveType(typeId: 0)
 class Item {
+  @HiveField(0)
   final int id;
+  @HiveField(1)
   String name;
+  @HiveField(2)
   String model;
+  @HiveField(3)
   String quantity;
+  @HiveField(4)
   String price;
+  @HiveField(5)
   String description;
 
   Item(

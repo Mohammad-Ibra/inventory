@@ -1,3 +1,3 @@
-import '../models/items.dart';
+import 'package:hive/hive.dart';
 
-List<Item> items = [];
+List items = Hive.box("itemBox").get("items") ?? [];
