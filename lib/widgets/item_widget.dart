@@ -42,50 +42,53 @@ class _ItemWidgetState extends State<ItemWidget> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    "Item",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                ],
+              Container(
+                width: 200,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: const Text(
+                  "Item",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Text(
+              Container(
+                width: 200,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: const Center(
+                  child: Text(
                     "Model",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                ],
+                ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Text(
+              Container(
+                width: 200,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: const Center(
+                  child: Text(
                     "Quantity",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                ],
+                ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
-                  Text(
+              Container(
+                width: 200,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: const Center(
+                  child: Text(
                     "Price",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                ],
+                ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Text(
+              Container(
+                width: 200,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: const Center(
+                  child: Text(
                     "Description",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                ],
+                ),
               ),
               const Icon(
                 Icons.abc,
@@ -108,7 +111,9 @@ class _ItemWidgetState extends State<ItemWidget> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Center(
+                Container(
+                  width: 200,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: MySwapWidget(
                     childIfSelected: SizedBox(
                       width: 200,
@@ -122,67 +127,83 @@ class _ItemWidgetState extends State<ItemWidget> {
                     selected: isSelected,
                   ),
                 ),
-                Center(
-                  child: MySwapWidget(
-                    childIfSelected: SizedBox(
-                      width: 200,
-                      height: 10,
-                      child: TextField(
-                        controller: widget.modelController,
-                        textAlign: TextAlign.center,
+                Container(
+                  width: 200,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Center(
+                    child: MySwapWidget(
+                      childIfSelected: SizedBox(
+                        width: 200,
+                        height: 10,
+                        child: TextField(
+                          controller: widget.modelController,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
+                      childIfnotSelected: Text(index.model),
+                      selected: isSelected,
                     ),
-                    childIfnotSelected: Text(index.model),
-                    selected: isSelected,
                   ),
                 ),
-                Center(
-                  child: MySwapWidget(
-                    childIfSelected: SizedBox(
-                      width: 200,
-                      height: 10,
-                      child: TextField(
-                        controller: widget.quantityController,
-                        textAlign: TextAlign.center,
+                Container(
+                  width: 200,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Center(
+                    child: MySwapWidget(
+                      childIfSelected: SizedBox(
+                        width: 200,
+                        height: 10,
+                        child: TextField(
+                          controller: widget.quantityController,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
+                      childIfnotSelected: Text(index.quantity),
+                      selected: isSelected,
                     ),
-                    childIfnotSelected: Text(index.quantity),
-                    selected: isSelected,
                   ),
                 ),
-                Center(
-                  child: MySwapWidget(
-                    childIfSelected: SizedBox(
-                      width: 200,
-                      height: 10,
-                      child: TextField(
-                        controller: widget.priceController,
-                        textAlign: TextAlign.center,
+                Container(
+                  width: 200,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Center(
+                    child: MySwapWidget(
+                      childIfSelected: SizedBox(
+                        width: 200,
+                        height: 10,
+                        child: TextField(
+                          controller: widget.priceController,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
+                      childIfnotSelected: Text(index.price),
+                      selected: isSelected,
                     ),
-                    childIfnotSelected: Text(index.price),
-                    selected: isSelected,
                   ),
                 ),
-                Center(
-                  child: MySwapWidget(
-                    childIfSelected: SizedBox(
-                      width: 200,
-                      height: 10,
-                      child: TextField(
-                        controller: widget.descriptionController,
-                        textAlign: TextAlign.center,
+                Container(
+                  width: 200,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Center(
+                    child: MySwapWidget(
+                      childIfSelected: SizedBox(
+                        width: 200,
+                        height: 10,
+                        child: TextField(
+                          controller: widget.descriptionController,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
+                      childIfnotSelected: Text(index.description),
+                      selected: isSelected,
                     ),
-                    childIfnotSelected: Text(index.description),
-                    selected: isSelected,
                   ),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     InkWell(
-                      onTap: () {
+                      onDoubleTap: () {
                         setState(() {
                           isSelected = !isSelected;
                           index.name = widget.nameController.text;
