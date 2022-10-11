@@ -37,50 +37,56 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
           const Gap(20),
-          Container(
-            width: 200,
-            margin: const EdgeInsets.all(10),
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: Colors.grey,
-            ),
-            child: TextButton(
-              onPressed: () {
-                setState(() {
-                  Hive.box("itemBox").putAll({'items': items});
-                });
-              },
-              child: const Icon(
-                Icons.save,
-                color: Colors.white,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                width: 200,
+                margin: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: Colors.grey,
+                ),
+                child: TextButton(
+                  onPressed: () {
+                    setState(() {
+                      Hive.box("itemBox").putAll({'items': items});
+                    });
+                  },
+                  child: const Icon(
+                    Icons.save,
+                    color: Colors.white,
+                  ),
+                ),
               ),
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: Colors.grey,
-            ),
-            child: TextButton(
-              onPressed: () {
-                setState(() {
-                  items.add(Item(
-                      id: widget.itemId,
-                      name: 'item name',
-                      model: 'model',
-                      quantity: '0',
-                      price: 'in \$',
-                      description: 'description'));
-                  widget.itemId++;
-                });
-              },
-              child: const Icon(
-                Icons.add,
-                color: Colors.white,
+              Container(
+                width: 200,
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: Colors.grey,
+                ),
+                child: TextButton(
+                  onPressed: () {
+                    setState(() {
+                      items.add(Item(
+                          id: widget.itemId,
+                          name: 'item name',
+                          model: 'model',
+                          quantity: '0',
+                          price: 'in \$',
+                          description: 'description'));
+                      widget.itemId++;
+                    });
+                  },
+                  child: const Icon(
+                    Icons.add,
+                    color: Colors.white,
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
           ItemWidget(
             isLabel: true,
