@@ -46,13 +46,12 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 setState(() {
                   items.add(Item(
-                    id: widget.itemId,
-                    name: 'item name',
-                    model: 'model',
-                    quantity: 0,
-                    price: 'in \$',
-                    description: "descriptions",
-                  ));
+                      id: widget.itemId,
+                      name: 'item name',
+                      model: 'model',
+                      quantity: '0',
+                      price: 'in \$',
+                      description: 'description'));
                   widget.itemId++;
                 });
               },

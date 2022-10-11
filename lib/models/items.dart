@@ -16,11 +16,11 @@ class Store {
 
 class Item {
   final int id;
-  final String name;
-  final String model;
-  final int quantity;
-  final String price;
-  final String description;
+  String name;
+  String model;
+  String quantity;
+  String price;
+  String description;
 
   Item(
       {required this.id,
